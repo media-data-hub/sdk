@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/media-data-hub/sdk/compare/v1.0.0...v1.0.1) (2024-08-02)
+
+
+### Bug Fixes
+
+* update package.json ([bcde3e3](https://github.com/media-data-hub/sdk/commit/bcde3e3989b4dcf5fbfea0e681d76cdb464166fc))
+
 ## 1.0.0 (2024-08-02)
 
 
