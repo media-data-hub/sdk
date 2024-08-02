@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "SDK for media-data-hub",
   "type": "module",
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsc",
