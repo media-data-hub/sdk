@@ -1,7 +1,7 @@
 {
-  "name": "@mediadatahub/sdk",
+  "name": "@media-data-hub/sdk",
   "version": "1.0.0",
-  "description": "SDK for MediaDataHub",
+  "description": "SDK for media-data-hub",
   "type": "module",
   "publishConfig": {
     "access": "public"
@@ -17,12 +17,12 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mediadatahub/sdk.git"
+    "url": "https://github.com/media-data-hub/sdk.git"
   },
   "bugs": {
-    "url": "https://github.com/mediadatahub/sdk/issues"
+    "url": "https://github.com/media-data-hub/sdk/issues"
   },
-  "homepage": "https://github.com/mediadatahub/sdk#readme",
+  "homepage": "https://github.com/media-data-hub/sdk#readme",
   "module": "./dist/index.js",
   "imports": {
     "#client": {
