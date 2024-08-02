@@ -1,0 +1,93 @@
+{
+  "name": "@mediadatahub/sdk",
+  "version": "1.0.0",
+  "description": "SDK for MediaDataHub",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc",
+    "lint": "eslint src",
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "Joshua Avalon",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mediadatahub/sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mediadatahub/sdk/issues"
+  },
+  "homepage": "https://github.com/mediadatahub/sdk#readme",
+  "module": "./dist/index.js",
+  "imports": {
+    "#client": {
+      "types": "./dist/client/index.d.ts",
+      "import": "./dist/client/index.js"
+    },
+    "#image": {
+      "types": "./dist/image/index.d.ts",
+      "import": "./dist/image/index.js"
+    },
+    "#episode": {
+      "import": "./dist/episode/index.js"
+    },
+    "#episode/*": {
+      "import": "./dist/episode/*/index.js"
+    },
+    "#error": {
+      "import": "./dist/error/index.js"
+    }
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./client": {
+      "types": "./dist/client/index.d.ts",
+      "import": "./dist/client/index.js"
+    },
+    "./episode": {
+      "types": "./dist/episode/index.d.ts",
+      "import": "./dist/episode/index.js"
+    },
+    "./image": {
+      "types": "./dist/image/index.d.ts",
+      "import": "./dist/image/index.js"
+    },
+    "./kana": {
+      "types": "./dist/kana/index.d.ts",
+      "import": "./dist/kana/index.js"
+    },
+    "./script": {
+      "types": "./dist/script/index.d.ts",
+      "import": "./dist/script/index.js"
+    },
+    "./type": {
+      "types": "./dist/type/index.d.ts",
+      "import": "./dist/type/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@joshuaavalon/eslint-config-typescript": "^8.1.0",
+    "@types/chai": "^4.3.17",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "^20.14.13",
+    "chai": "^5.1.1",
+    "eslint": "^9.8.0",
+    "mocha": "^10.7.0",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "pocketbase": "^0.21.4"
+  }
+}
