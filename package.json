@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "SDK for media-data-hub",
   "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsc",
@@ -20,7 +22,6 @@
     "url": "https://github.com/media-data-hub/sdk/issues"
   },
   "homepage": "https://github.com/media-data-hub/sdk#readme",
-  "module": "./dist/index.js",
   "imports": {},
   "exports": {
     ".": {
