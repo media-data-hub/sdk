@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/media-data-hub/sdk/compare/v1.0.1...v1.1.0) (2024-08-03)
+
+
+### Features
+
+* add updateStaff ([a12e896](https://github.com/media-data-hub/sdk/commit/a12e8969edd913a80216a23d175cc3628cca5ecb))
+
 ## [1.0.1](https://github.com/media-data-hub/sdk/compare/v1.0.0...v1.0.1) (2024-08-02)
 
 
