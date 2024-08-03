@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/media-data-hub/sdk/compare/v1.1.1...v1.1.2) (2024-08-03)
+
+
+### Bug Fixes
+
+* UpdateStaffInput ([d9eece4](https://github.com/media-data-hub/sdk/commit/d9eece448f129f5a780333bc2ec2d15ebc59bfc0))
+
 ## [1.1.1](https://github.com/media-data-hub/sdk/compare/v1.1.0...v1.1.1) (2024-08-03)
 
 
