@@ -14,11 +14,11 @@ export interface MediaDataHubOptions {
 }
 
 export interface UpdateStaffInput {
-  tvSeriesId: string;
-  tvSeasonId: string;
-  movieId: string;
+  tvSeriesId?: string;
+  tvSeasonId?: string;
+  movieId?: string;
   countryId: string;
-  actors: [string, string, RoleJellyfinOptions] | [string, string];
+  actors: ([string, string, RoleJellyfinOptions] | [string, string])[];
 }
 
 export interface Staff {
@@ -136,7 +136,7 @@ export class MediaDataHub extends PocketBase {
     const priorities: Record<string, number> = {};
     for (const [roleName, personName, jellyfin] of actors) {
       const person = await this.findOrCreatePerson({ name: personName, country });
-      const role = await this.findOrCreateRole({ name: roleName, jellyfin: jellyfin as RoleJellyfinOptions });
+      const role = await this.findOrCreateRole({ name: roleName, jellyfin });
       priorities[role.jellyfin] ??= 0;
       const priority = priorities[role.jellyfin];
       if (tvSeries) {
