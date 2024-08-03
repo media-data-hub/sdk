@@ -1,10 +1,26 @@
 import PocketBase from "pocketbase";
 import { ExtendedRecordService } from "./record-service.js";
 
+import type { BaseAuthStore } from "pocketbase";
+import type { Logger } from "pino";
 import type { BaseSystemFields, Collections } from "./type.js";
+
+export interface MediaDataHubOptions {
+  logger: Logger;
+  baseUrl?: string;
+  authStore?: BaseAuthStore | null;
+  lang?: string;
+}
 
 export class MediaDataHub extends PocketBase {
   private services: { [key: string]: ExtendedRecordService<Collections> } = {};
+  public readonly logger: Logger;
+
+  public constructor(opts: MediaDataHubOptions) {
+    const { logger, baseUrl, authStore, lang } = opts;
+    super(baseUrl, authStore, lang);
+    this.logger = logger;
+  }
 
   public c<C extends Collections>(name: `${C}`): ExtendedRecordService<C> {
     if (!this.services[name]) {

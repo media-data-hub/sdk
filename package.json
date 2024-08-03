@@ -33,7 +33,7 @@
     "dist"
   ],
   "devDependencies": {
-    "@joshuaavalon/eslint-config-typescript": "^8.1.0",
+    "@joshuaavalon/eslint-config-typescript": "^8.1.1",
     "@types/chai": "^4.3.17",
     "@types/mocha": "^10.0.7",
     "@types/node": "^20.14.13",
@@ -44,6 +44,8 @@
     "typescript": "^5.5.4"
   },
   "dependencies": {
+    "pino": "^9.3.2",
+    "pino-pretty": "^11.2.2",
     "pocketbase": "^0.21.4"
   }
 }
