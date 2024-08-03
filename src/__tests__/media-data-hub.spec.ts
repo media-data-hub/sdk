@@ -1,10 +1,19 @@
 import { assert } from "chai";
 import Client from "pocketbase";
+import { pino } from "pino";
 
 import { MediaDataHub } from "../media-data-hub.js";
 
+
+const logger = pino({
+  transport: {
+    target: "pino-pretty",
+    options: { colorize: true }
+  }
+});
+
 const client = new Client("url");
-const mdh = new MediaDataHub("url");
+const mdh = new MediaDataHub({ logger });
 
 describe("Test MediaDataHub", () => {
   it("should match f() with filter()", async () => {
