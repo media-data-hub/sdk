@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/media-data-hub/sdk/compare/v1.1.0...v1.1.1) (2024-08-03)
+
+
+### Bug Fixes
+
+* move updateStaff to MediaDataHub ([fc1ae4d](https://github.com/media-data-hub/sdk/commit/fc1ae4d3cf282aefc262bd4982ee648e457db496))
+
 ## [1.1.0](https://github.com/media-data-hub/sdk/compare/v1.0.1...v1.1.0) (2024-08-03)
 
 
