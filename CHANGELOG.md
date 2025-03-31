@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/media-data-hub/sdk/compare/v1.1.2...v1.1.3) (2025-03-31)
+
+
+### Bug Fixes
+
+* Update dependencies ([057c256](https://github.com/media-data-hub/sdk/commit/057c2561d396ec75ce42a0c002e6d805d9005269))
+
 ## [1.1.2](https://github.com/media-data-hub/sdk/compare/v1.1.1...v1.1.2) (2024-08-03)
 
 
