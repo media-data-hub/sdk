@@ -1,7 +1,6 @@
 import { assert } from "chai";
 import { pino } from "pino";
 import Client from "pocketbase";
-
 import { MediaDataHub } from "../media-data-hub.js";
 
 
@@ -38,7 +37,7 @@ describe("Test MediaDataHub", () => {
       raw += `${key}={:${key}}`;
     }
     const expected = client.filter(raw, params);
-    const actual = mdh.f`test1=${params.test1} || test2=${params.test2} || test3=${params.test3} || test4=${params.test4} || test5=${params.test5} || test6=${params.test6} || test7=${params.test7} || test8=${params.test8} || test9=${params.test9} || test10=${params.test10}`;
+    const actual = mdh.f`test1=${params.test1} || test10=${params.test10} || test2=${params.test2} || test3=${params.test3} || test4=${params.test4} || test5=${params.test5} || test6=${params.test6} || test7=${params.test7} || test8=${params.test8} || test9=${params.test9}`;
     assert.equal(actual, expected);
   });
 });
