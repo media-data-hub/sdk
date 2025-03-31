@@ -1,20 +1,22 @@
-import typescript from "typescript-eslint";
 import jsConfig from "@joshuaavalon/eslint-config-javascript";
-import tsRules from "@joshuaavalon/eslint-config-typescript";
+import tsConfig from "@joshuaavalon/eslint-config-typescript";
+import globals from "globals";
+import typescript from "typescript-eslint";
 
 export default [
-  { ignores: ["node_modules", "dist"] },
+  { ignores: ["**/node_modules", "**/dist"] },
   {
     ...jsConfig,
-    files: ["**/*.js", "**/*.mjs", "**/*.cjs"]
+    files: ["**/*.js", "**/*.mjs", "**/*.cjs"],
+    languageOptions: { globals: { ...globals.node } }
   },
   {
-    ...tsRules,
+    ...tsConfig,
     files: ["**/*.ts"],
     languageOptions: {
       parser: typescript.parser,
       parserOptions: {
-        project: true,
+        projectService: true,
         tsconfigDirName: import.meta.dirname
       }
     }

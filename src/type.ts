@@ -34,20 +34,20 @@ export type HTMLString = string;
 
 // System fields
 export type BaseSystemFields<T = never> = {
-  id: RecordIdString;
-  created: IsoDateString;
-  updated: IsoDateString;
   collectionId: string;
   collectionName: Collections;
+  created: IsoDateString;
   expand?: T;
+  id: RecordIdString;
+  updated: IsoDateString;
 };
 
-export type AuthSystemFields<T = never> = BaseSystemFields<T> & {
+export type AuthSystemFields<T = never> = {
   email: string;
   emailVisibility: boolean;
   username: string;
   verified: boolean;
-};
+} & BaseSystemFields<T>;
 
 // Record types for each collection
 
@@ -149,17 +149,17 @@ export type PersonRecord = {
 
 export enum RoleJellyfinOptions {
   Actor = "Actor",
-  Director = "Director",
-  Composer = "Composer",
-  Writer = "Writer",
-  GuestStar = "GuestStar",
-  Producer = "Producer",
-  Conductor = "Conductor",
-  Lyricist = "Lyricist",
   Arranger = "Arranger",
+  Composer = "Composer",
+  Conductor = "Conductor",
+  Director = "Director",
   Engineer = "Engineer",
+  GuestStar = "GuestStar",
+  Lyricist = "Lyricist",
   Mixer = "Mixer",
-  Remixer = "Remixer"
+  Producer = "Producer",
+  Remixer = "Remixer",
+  Writer = "Writer"
 }
 export type RoleRecord = {
   jellyfin?: RoleJellyfinOptions;
@@ -339,7 +339,7 @@ export type CollectionResponses = {
 // Type for usage with type asserted PocketBase instance
 // https://github.com/pocketbase/js-sdk#specify-typescript-definitions
 
-export type TypedPocketBase = PocketBase & {
+export type TypedPocketBase = {
   collection(idOrName: "collection"): RecordService<CollectionResponse>;
   collection(idOrName: "country"): RecordService<CountryResponse>;
   collection(idOrName: "genre"): RecordService<GenreResponse>;
@@ -358,4 +358,4 @@ export type TypedPocketBase = PocketBase & {
   collection(idOrName: "tvSeries"): RecordService<TvSeriesResponse>;
   collection(idOrName: "tvSeriesStaff"): RecordService<TvSeriesStaffResponse>;
   collection(idOrName: "user"): RecordService<UserResponse>;
-};
+} & PocketBase;

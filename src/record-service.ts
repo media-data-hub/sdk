@@ -1,9 +1,8 @@
 import { RecordService } from "pocketbase";
-
-import type { ListResult, RecordListOptions } from "pocketbase";
 import type { Logger } from "pino";
-import type { CollectionResponses, Collections } from "./type.js";
+import type { ListResult, RecordListOptions } from "pocketbase";
 import type { MediaDataHub } from "./media-data-hub.js";
+import type { CollectionResponses, Collections } from "./type.js";
 
 export interface FilterFunction<T> {
   (template: TemplateStringsArray, ...params: unknown[]): Promise<T>;
@@ -18,7 +17,7 @@ export class ExtendedRecordService<C extends Collections> extends RecordService<
     return async (template: TemplateStringsArray, ...params: unknown[]) => {
       const filter = this.mdh.f(template, ...params);
       const result = await this.getList(1, 1, { filter, skipTotal: true, ...opts });
-      return result?.items[0];
+      return result.items[0];
     };
   }
 

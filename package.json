@@ -33,19 +33,19 @@
     "dist"
   ],
   "devDependencies": {
-    "@joshuaavalon/eslint-config-typescript": "^8.1.1",
-    "@types/chai": "^4.3.17",
-    "@types/mocha": "^10.0.7",
-    "@types/node": "^20.14.13",
-    "chai": "^5.1.1",
-    "eslint": "^9.8.0",
-    "mocha": "^10.7.0",
+    "@joshuaavalon/eslint-config-typescript": "^9.2.2",
+    "@types/chai": "^5.2.1",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.13.14",
+    "chai": "^5.2.0",
+    "eslint": "^9.23.0",
+    "mocha": "^11.1.0",
     "rimraf": "^6.0.1",
-    "typescript": "^5.5.4"
+    "typescript": "^5.8.2"
   },
   "dependencies": {
-    "pino": "^9.3.2",
-    "pino-pretty": "^11.2.2",
-    "pocketbase": "^0.21.4"
+    "pino": "^9.6.0",
+    "pino-pretty": "^13.0.0",
+    "pocketbase": "^0.25.2"
   }
 }
