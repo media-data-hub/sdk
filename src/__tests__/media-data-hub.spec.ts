@@ -1,14 +1,14 @@
 import { assert } from "chai";
-import Client from "pocketbase";
 import { pino } from "pino";
+import Client from "pocketbase";
 
 import { MediaDataHub } from "../media-data-hub.js";
 
 
 const logger = pino({
   transport: {
-    target: "pino-pretty",
-    options: { colorize: true }
+    options: { colorize: true },
+    target: "pino-pretty"
   }
 });
 
@@ -19,6 +19,7 @@ describe("Test MediaDataHub", () => {
   it("should match f() with filter()", async () => {
     const params = {
       test1: "a'b'c'",
+      test10: { a: "test'123" },
       test2: null,
       test3: true,
       test4: false,
@@ -26,8 +27,7 @@ describe("Test MediaDataHub", () => {
       test6: -123.45,
       test7: 123.45,
       test8: new Date("2023-10-18 10:11:12"),
-      test9: [1, 2, 3, "test'123"],
-      test10: { a: "test'123" }
+      test9: [1, 2, 3, "test'123"]
     };
 
     let raw = "";
