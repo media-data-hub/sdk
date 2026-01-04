@@ -1,10 +1,20 @@
 import PocketBase from "pocketbase";
 import { ExtendedRecordService } from "./record-service.js";
 import { Collections } from "./type.js";
-
 import type { Logger } from "pino";
 import type { BaseAuthStore } from "pocketbase";
-import type { BaseSystemFields, MovieStaffResponse, PersonRecord, PersonResponse, RoleJellyfinOptions, RoleRecord, RoleResponse, TvSeasonStaffResponse, TvSeriesStaffResponse } from "./type.js";
+import type {
+  BaseSystemFields,
+  IsoAutoDateString,
+  MovieStaffResponse,
+  PersonRecord,
+  PersonResponse,
+  RoleJellyfinOptions,
+  RoleRecord,
+  RoleResponse,
+  TvSeasonStaffResponse,
+  TvSeriesStaffResponse
+} from "./type.js";
 
 export interface MediaDataHubOptions {
   authStore?: BaseAuthStore | null;
@@ -27,6 +37,12 @@ export interface Staff {
   role: RoleResponse;
 }
 
+type Optional<T, U extends keyof T> = Partial<Pick<T, U>> & Pick<T, Exclude<keyof T, U>>;
+type AutoDateKey<T> = keyof {
+  [K in keyof T as T[K] extends IsoAutoDateString ? K : never]: any
+};
+type CreateInput<T> = AutoDateKey<T> | "id" extends keyof T ? Optional<T, AutoDateKey<T> | "id"> : never;
+
 export class MediaDataHub extends PocketBase {
   private services: Record<string, ExtendedRecordService<Collections>> = {};
   public readonly logger: Logger;
@@ -45,7 +61,7 @@ export class MediaDataHub extends PocketBase {
     return this.services[name] as ExtendedRecordService<C>;
   }
 
-  public getAdminThumbUrl(record: BaseSystemFields<unknown>, fileName: string): string {
+  public getAdminThumbUrl(record: BaseSystemFields, fileName: string): string {
     return this.files.getURL(record, fileName, { thumb: "100x100" });
   }
 
@@ -77,7 +93,7 @@ export class MediaDataHub extends PocketBase {
     return this.c(collection).create({ country, name, sortName: name });
   }
 
-  private async findOrCreateRole(record: RoleRecord): Promise<RoleResponse> {
+  private async findOrCreateRole(record: CreateInput<RoleRecord>): Promise<RoleResponse> {
     const { jellyfin = "Actor", name } = record;
     const collection = Collections.Role;
     const item = await this.c(collection).first()`name = ${name} && jellyfin = ${jellyfin}`;
