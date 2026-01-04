@@ -1,5 +1,5 @@
 import jsConfig from "@joshuaavalon/eslint-config-javascript";
-import tsConfig from "@joshuaavalon/eslint-config-typescript";
+import tsRules from "@joshuaavalon/eslint-config-typescript";
 import globals from "globals";
 import typescript from "typescript-eslint";
 
@@ -11,7 +11,7 @@ export default [
     languageOptions: { globals: { ...globals.node } }
   },
   {
-    ...tsConfig,
+    ...tsRules,
     files: ["**/*.ts"],
     languageOptions: {
       parser: typescript.parser,
@@ -20,5 +20,28 @@ export default [
         tsconfigDirName: import.meta.dirname
       }
     }
+  },
+  {
+    ...tsRules,
+    files: ["src/type.ts"],
+    languageOptions: {
+      parser: typescript.parser,
+      parserOptions: {
+        projectService: true,
+        tsconfigDirName: import.meta.dirname
+      }
+    },
+    rules: { "@typescript-eslint/naming-convention": ["off"] }
+  },
+  {
+    files: ["**/__tests__/**/*.ts"],
+    languageOptions: {
+      parser: typescript.parser,
+      parserOptions: {
+        projectService: true,
+        tsconfigDirName: import.meta.dirname
+      }
+    },
+    rules: { "prefer-arrow-callback": ["off"] }
   }
 ];
