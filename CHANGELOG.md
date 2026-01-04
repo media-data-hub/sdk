@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.0](https://github.com/media-data-hub/sdk/compare/v1.2.0...v1.3.0) (2026-01-04)
+
+
+### Features
+
+* Update ([5c5be44](https://github.com/media-data-hub/sdk/commit/5c5be440c130c15cc9eea1e1fc6186fff73c700d))
+* Update types ([c825771](https://github.com/media-data-hub/sdk/commit/c825771845b587c87815cfea31bda4c291ed9d74))
+
 ## [1.2.0](https://github.com/media-data-hub/sdk/compare/v1.1.3...v1.2.0) (2025-07-09)
 
 
